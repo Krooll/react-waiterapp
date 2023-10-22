@@ -1,0 +1,25 @@
+.card {
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    margin-top: 40px;
+    border-bottom: 1px solid;
+}
+
+.cardText {
+    display: flex;
+    font-weight: 700;
+}
+
+.cardButton {
+    text-align: end;
+}
+
+.title {
+    margin-right: 20px;
+}
+
+.status {
+    font-weight: 400;
+    margin-top: 5px;
+}

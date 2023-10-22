@@ -1,0 +1,14 @@
+.navBar {
+    margin-top: 50px;
+}
+
+.navLinks {
+    margin: 0 15px;
+    color: white;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+.navLinks:hover {
+    color: darken($color: white, $amount: 70%);
+}
