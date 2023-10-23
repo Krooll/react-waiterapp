@@ -3,8 +3,8 @@
     {
       "id": "1",
       "status": "Busy",
-      "peopleAmount": "5",
-      "maxPeopleAmount": "7",
+      "peopleAmount": 10,
+      "maxPeopleAmount": 10,
       "bill": 67
     },
     {

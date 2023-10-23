@@ -43,7 +43,7 @@ const SingleTable = () => {
         }else if(activeMaxPeople > 10){
             setMaxPeopleAmount(10);
         }else if(activeMaxPeople <= 0){
-            setMaxPeopleAmount(1);
+            setMaxPeopleAmount(0);
         }else{
             setMaxPeopleAmount(activeMaxPeople);
         }
@@ -57,7 +57,7 @@ const SingleTable = () => {
         }else if(activePeopleAmount > maxPeopleAmount){
             setPeopleAmount(maxPeopleAmount);
         }else if(activePeopleAmount <= 0){
-            setPeopleAmount(1);
+            setPeopleAmount(0);
         }else {
             setPeopleAmount(activePeopleAmount);
         }
