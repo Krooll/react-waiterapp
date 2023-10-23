@@ -27,20 +27,20 @@ const SingleTable = () => {
         const activeStatus = e.target.value
         e.preventDefault();
         setStatus(activeStatus);
-    };
-
-    const handleSetPeople = e => {
-        const activePeopleAmount = e.target.value;
-        e.preventDefault();
-        if (!isNaN(activePeopleAmount) && activePeopleAmount >= 0 && activePeopleAmount <= 10 && activePeopleAmount <= maxPeopleAmount) {
-            setPeopleAmount(activePeopleAmount);
+        if(status === 'Free'){
+            setPeopleAmount(0);
         }
     };
+
+    /*jeszcze jeden ale ten nie wiem czy sie uda ogarnac tzn 
+    jesli zmienimy pierwsze maxpeople to potem peopleamount swiruje handle setpeople and handle setmaxpeople do poprawy*/
 
     const handleSetMaxPeople = e => {
         const activeMaxPeople = e.target.value;
         e.preventDefault();
-        if(activeMaxPeople > 10){
+        if(isNaN(activeMaxPeople)){
+            setMaxPeopleAmount(10);
+        }else if(activeMaxPeople > 10){
             setMaxPeopleAmount(10);
         }else if(activeMaxPeople <= 0){
             setMaxPeopleAmount(1);
@@ -49,7 +49,19 @@ const SingleTable = () => {
         }
     };
 
- 
+    const handleSetPeople = e => {
+        const activePeopleAmount = e.target.value;
+        e.preventDefault();
+        if(isNaN(activePeopleAmount)){
+            setPeopleAmount(activePeopleAmount);
+        }else if(activePeopleAmount > maxPeopleAmount){
+            setPeopleAmount(maxPeopleAmount);
+        }else if(activePeopleAmount <= 0){
+            setPeopleAmount(1);
+        }else {
+            setPeopleAmount(activePeopleAmount);
+        }
+    };
 
     const handleToggleBill = () => {
         if(status === 'Busy'){
@@ -91,11 +103,11 @@ const SingleTable = () => {
                         </FormGroup>
                         <FormGroup className={styles.form}>
                             <p className={styles.tableInfo}>People:</p>
-                            <Form.Control className={styles.counter} 
+                            <Form.Control className={styles.counter} type='number'
                                 value={peopleAmount} onChange={handleSetPeople}>  
                             </Form.Control>
                             <p className={styles.mark}>/</p>
-                            <Form.Control className={styles.counter} 
+                            <Form.Control className={styles.counter} type='number'
                             value={maxPeopleAmount} onChange={handleSetMaxPeople}></Form.Control>
                         </FormGroup>
                         {handleToggleBill()}

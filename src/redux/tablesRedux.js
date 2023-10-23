@@ -29,6 +29,10 @@ export const fetchTables = () => {
 
 export const editTableRequest = (updateTables) => {
   return (dispatch) => {
+    if(updateTables.status === 'Free'){
+      updateTables.peopleAmount = 0;
+      updateTables.maxPeopleAmount = 0;
+    }
     const options = {
       method: 'PATCH',
       headers: {
